@@ -11,6 +11,12 @@ externalQuery: "Avengers: Doomsday"
 
 **Vingadores: Doomsday** estreia em 18 de dezembro e já confirmou um dos elencos mais numerosos da história do MCU. O grande destaque é o retorno de **Robert Downey Jr.**, que volta ao universo Marvel não como Tony Stark, mas no papel do vilão **Doutor Destino**.
 
+<YouTubeEmbed videoId="irVNGjRFZGk" title="Avengers: Doomsday - Official Trailer" />
+
+O primeiro trailer oficial foi ao ar em 20 de julho, com quase dois minutos e meio de duração, e mostra ao público o primeiro vislumbre da armadura do Doutor Destino de Downey Jr. em ação.
+
+![Cena de Vingadores: Doomsday](https://image.tmdb.org/t/p/w1280/6KDDoTq8Vq3HuQHULzuvPiCJbMI.jpg)
+
 ## Um crossover de três universos
 
 O filme promete colocar heróis de linhas narrativas distintas — os Vingadores originais, o elenco do recente *Quarteto Fantástico* e o grupo de *Thunderbolts* — em rota de colisão contra uma ameaça existencial.

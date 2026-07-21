@@ -11,6 +11,8 @@ externalQuery: "Gears of War Reloaded"
 
 Julho está movimentado para os assinantes do **Xbox Game Pass**. O destaque do mês é **Gears of War: Reloaded**, remaster do Gears of War original construído em Unreal Engine, disponível desde o dia 9 para console, PC e nuvem.
 
+![Gears of War: Reloaded](https://media.rawg.io/media/screenshots/1ed/1edcf8b73d638be8381baebe69c2ab91.jpg)
+
 ## O que já chegou
 
 - **Winds of Arcana: Ruination** (6 de julho) — Metroidvania 2.5D narrativo com dublagem completa.
@@ -19,7 +21,7 @@ Julho está movimentado para os assinantes do **Xbox Game Pass**. O destaque do 
 
 ## O que ainda vem no mês
 
-Na segunda metade de julho, o catálogo ainda recebe **Hell is Us** e **Halo: Campaign Evolved**, fechando um mês bem recheado mesmo sem um "grande" exclusivo de peso.
+Na segunda metade de julho, o catálogo ainda recebe **Hell is Us**, jogo de ação e exploração com forte pegada narrativa, e **Halo: Campaign Evolved**, remake completo da campanha do Halo original com missões inéditas — fechando um mês bem recheado mesmo sem um "grande" exclusivo de peso lançando no dia um.
 
 ## De olho no resto de 2026
 

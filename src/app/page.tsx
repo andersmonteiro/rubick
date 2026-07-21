@@ -5,11 +5,16 @@ import { categories } from "@/lib/categories";
 import { getAllPosts } from "@/lib/posts";
 import { resolveCoverImage } from "@/lib/cover";
 
-const CAROUSEL_SIZE = 3;
+const CAROUSEL_SIZE = 6;
 
 export default async function Home() {
   const allPosts = getAllPosts();
-  const heroPostsRaw = allPosts.slice(0, CAROUSEL_SIZE);
+  // Featured (breaking news) posts are pinned first; the rest fill the
+  // remaining slots in chronological order, so the carousel always leads
+  // with what matters most and stays fresh as new posts are added.
+  const featuredPosts = allPosts.filter((p) => p.featured);
+  const otherPosts = allPosts.filter((p) => !p.featured);
+  const heroPostsRaw = [...featuredPosts, ...otherPosts].slice(0, CAROUSEL_SIZE);
   const heroSlugs = new Set(heroPostsRaw.map((p) => p.slug));
   const heroPosts = await Promise.all(
     heroPostsRaw.map(async (post) => ({

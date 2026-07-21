@@ -11,29 +11,26 @@ export default function Footer() {
               RUBIC<span className="text-accent">K</span>
             </p>
             <p className="mt-2 max-w-sm text-sm text-muted">
-              Cobertura de jogos, séries, filmes e animes. Este site é um
-              projeto de demonstração e o conteúdo publicado é fictício.
+              Cobertura de jogos, séries, filmes e animes.
             </p>
           </div>
 
-          <div className="flex gap-8">
-            <div>
-              <p className="font-display mb-2 text-xs font-semibold uppercase tracking-wider text-muted">
-                Categorias
-              </p>
-              <ul className="space-y-1 text-sm">
-                {categories.map((cat) => (
-                  <li key={cat.slug}>
-                    <Link
-                      href={`/categoria/${cat.slug}`}
-                      className="text-foreground/80 transition-colors hover:text-accent"
-                    >
-                      {cat.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <div>
+            <p className="font-display mb-2 text-xs font-semibold uppercase tracking-wider text-muted">
+              Categorias
+            </p>
+            <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
+              {categories.map((cat) => (
+                <li key={cat.slug}>
+                  <Link
+                    href={`/categoria/${cat.slug}`}
+                    className="text-foreground/80 transition-colors hover:text-accent"
+                  >
+                    {cat.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 

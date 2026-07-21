@@ -6,6 +6,10 @@ import { getAllPosts, getPostBySlug } from "@/lib/posts";
 import { getCategory } from "@/lib/categories";
 import { resolveCoverImage } from "@/lib/cover";
 import { formatDate } from "@/lib/date";
+import YouTubeEmbed from "@/components/mdx/YouTubeEmbed";
+import MdxImage from "@/components/mdx/MdxImage";
+
+const mdxComponents = { YouTubeEmbed, img: MdxImage };
 
 export function generateStaticParams() {
   return getAllPosts().map((p) => ({ slug: p.slug }));
@@ -87,7 +91,7 @@ export default async function PostPage({
       <p className="mt-4 text-sm text-muted">Por {post.author}</p>
 
       <div className="prose prose-invert mt-8 max-w-none prose-headings:font-display prose-headings:uppercase prose-headings:tracking-wide prose-a:text-accent">
-        <MDXRemote source={post.content} />
+        <MDXRemote source={post.content} components={mdxComponents} />
       </div>
     </article>
   );
