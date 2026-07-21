@@ -37,7 +37,7 @@ export default function HeroCarousel({ posts }: { posts: PostMeta[] }) {
     >
       <article
         key={post.slug}
-        className={`card-glitch animate-fade-in relative flex min-h-[320px] flex-col justify-end overflow-hidden bg-gradient-to-br ${post.gradient} p-6 sm:p-10`}
+        className={`card-glitch animate-fade-in relative flex h-[380px] flex-col justify-end overflow-hidden bg-gradient-to-br ${post.gradient} p-6 sm:h-[420px] sm:p-10`}
       >
         <span className="font-display text-outline pointer-events-none absolute right-4 top-4 text-5xl font-bold uppercase opacity-40 sm:text-7xl">
           {category?.label ?? post.category}
@@ -45,12 +45,12 @@ export default function HeroCarousel({ posts }: { posts: PostMeta[] }) {
 
         <div className="relative">
           {category && <span className={category.tagClass}>{category.label}</span>}
-          <h1 className="font-display mt-4 max-w-2xl text-3xl font-bold leading-tight sm:text-5xl">
+          <h1 className="font-display mt-4 line-clamp-3 max-w-2xl text-3xl font-bold leading-tight sm:text-5xl">
             <Link href={`/noticia/${post.slug}`} className="transition-colors hover:text-accent">
               {post.title}
             </Link>
           </h1>
-          <p className="mt-4 max-w-xl text-sm text-muted sm:text-base">{post.excerpt}</p>
+          <p className="mt-4 line-clamp-2 max-w-xl text-sm text-muted sm:text-base">{post.excerpt}</p>
           <Link href={`/noticia/${post.slug}`} className="btn-bracket mt-6 inline-flex">
             Ler matéria
           </Link>
