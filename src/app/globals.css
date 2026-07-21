@@ -1,0 +1,152 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+:root {
+  --background: #0a0a0c;
+  --surface: #141417;
+  --surface-2: #1c1c20;
+  --foreground: #f2f2f0;
+  --muted: #9a9a9f;
+  --accent: #f2ff2e;
+  --accent-2: #ff2e4d;
+  --border: #2a2a2e;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-2: var(--accent-2);
+  --color-border: var(--border);
+  --font-display: var(--font-chakra);
+  --font-sans: var(--font-inter);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  background-image:
+    linear-gradient(180deg, rgba(242, 255, 46, 0.04) 0%, transparent 12%),
+    repeating-linear-gradient(180deg, rgba(255, 255, 255, 0.015) 0px, rgba(255, 255, 255, 0.015) 1px, transparent 1px, transparent 3px);
+}
+
+.font-display {
+  font-family: var(--font-display), sans-serif;
+}
+
+/* Corner-clipped "bracket" button, cyberpunk-style */
+.clip-corners {
+  clip-path: polygon(
+    12px 0%, 100% 0%, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0% 100%, 0% 12px
+  );
+}
+
+.btn-bracket {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.4rem;
+  font-family: var(--font-display), sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  background: var(--accent);
+  color: #0a0a0c;
+  clip-path: polygon(10px 0%, 100% 0%, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0% 100%, 0% 10px);
+  transition: filter 0.15s ease, transform 0.15s ease;
+}
+
+.btn-bracket:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+}
+
+.btn-bracket-outline {
+  background: transparent;
+  color: var(--foreground);
+  border: 1px solid var(--border);
+}
+
+.btn-bracket-outline:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.card-glitch {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  clip-path: polygon(16px 0%, 100% 0%, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0% 100%, 0% 16px);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.card-glitch:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.tag-pill {
+  font-family: var(--font-display), sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  color: #0a0a0c;
+  background: var(--accent);
+  clip-path: polygon(6px 0%, 100% 0%, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0% 100%, 0% 6px);
+}
+
+.tag-pill-series { background: #7cf2ff; }
+.tag-pill-filmes { background: var(--accent-2); color: #f2f2f0; }
+.tag-pill-animes { background: #b98bff; }
+
+.text-outline {
+  -webkit-text-stroke: 1px var(--foreground);
+  color: transparent;
+}
+
+::selection {
+  background: var(--accent);
+  color: #0a0a0c;
+}
+
+.carousel-nav {
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 1.1rem;
+  background: rgba(10, 10, 12, 0.7);
+  border: 1px solid var(--border);
+  color: var(--foreground);
+  backdrop-filter: blur(4px);
+  clip-path: polygon(8px 0%, 100% 0%, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0% 100%, 0% 8px);
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.carousel-nav:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.45s ease;
+}
