@@ -136,6 +136,21 @@ body {
   color: var(--accent);
 }
 
+.mobile-menu-btn {
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  clip-path: polygon(8px 0%, 100% 0%, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0% 100%, 0% 8px);
+  transition: filter 0.15s ease;
+}
+
+.mobile-menu-btn:hover {
+  filter: brightness(1.15);
+}
+
 @keyframes fade-in {
   from {
     opacity: 0;

@@ -14,7 +14,7 @@ export default function MobileNav({ categories }: { categories: Category[] }) {
         aria-label={open ? "Fechar menu" : "Abrir menu"}
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
-        className="carousel-nav flex"
+        className="mobile-menu-btn flex"
       >
         <span className="relative block h-3 w-4">
           <span
