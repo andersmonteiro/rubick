@@ -5,6 +5,7 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import { getAllPosts, getPostBySlug } from "@/lib/posts";
 import { getCategory } from "@/lib/categories";
 import { resolveCoverImage } from "@/lib/cover";
+import { formatDate } from "@/lib/date";
 
 export function generateStaticParams() {
   return getAllPosts().map((p) => ({ slug: p.slug }));
@@ -37,14 +38,6 @@ export async function generateMetadata({
       description: post.excerpt,
     },
   };
-}
-
-function formatDate(date: string) {
-  return new Date(date).toLocaleDateString("pt-BR", {
-    day: "2-digit",
-    month: "long",
-    year: "numeric",
-  });
 }
 
 export default async function PostPage({
@@ -82,7 +75,9 @@ export default async function PostPage({
 
       <div className="mb-4 flex items-center gap-3">
         {category && <span className={category.tagClass}>{category.label}</span>}
-        <time className="text-xs text-muted">{formatDate(post.date)}</time>
+        <time className="text-xs text-muted">
+          {formatDate(post.date, { day: "2-digit", month: "long", year: "numeric" })}
+        </time>
       </div>
 
       <h1 className="font-display text-3xl font-bold leading-tight sm:text-4xl">

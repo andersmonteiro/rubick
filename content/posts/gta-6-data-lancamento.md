@@ -1,0 +1,26 @@
+---
+title: "GTA 6 tem data de lançamento reafirmada para 19 de novembro"
+category: jogos
+date: "2026-07-21"
+excerpt: "Depois de dois adiamentos, a Take-Two confirma novamente a data de novembro e já libera pré-venda em PS5 e Xbox Series X|S."
+author: "Redação Rubick"
+featured: true
+gradient: "from-accent/30 via-surface to-surface"
+externalQuery: "Grand Theft Auto VI"
+---
+
+O CEO da Take-Two Interactive, **Strauss Zelnick**, reafirmou publicamente que **Grand Theft Auto VI** chega em **19 de novembro de 2026** para PlayStation 5 e Xbox Series X|S — sem versão para PC confirmada no lançamento.
+
+## Uma longa espera até aqui
+
+O jogo já foi adiado duas vezes: da janela original de 2025 para maio de 2026, e depois de maio para novembro. Analistas do setor consideram a data atual sólida, já que a própria Take-Two vinculou suas projeções de receita do ano fiscal de 2027 diretamente ao lançamento do jogo — um forte sinal de que não deve haver novo adiamento.
+
+## Pré-venda já disponível
+
+As pré-vendas já estão no ar mundialmente, com preços de **US$ 79,99** para a edição padrão e **US$ 99,99** para a edição Ultimate nos Estados Unidos.
+
+## O que já sabemos do jogo
+
+- Dois protagonistas, **Jason** e **Lucia**.
+- Cenário inspirado na Flórida, batizado de **Leonida**, construído ao redor da cidade de **Vice City**.
+- Como de costume na Rockstar, uma versão para PC deve chegar só de um a dois anos depois do lançamento em console.

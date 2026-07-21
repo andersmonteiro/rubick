@@ -3,14 +3,7 @@ import Image from "next/image";
 import type { PostMeta } from "@/lib/posts";
 import { getCategory } from "@/lib/categories";
 import { resolveCoverImage } from "@/lib/cover";
-
-function formatDate(date: string) {
-  return new Date(date).toLocaleDateString("pt-BR", {
-    day: "2-digit",
-    month: "short",
-    year: "numeric",
-  });
-}
+import { formatDate } from "@/lib/date";
 
 export default async function NewsCard({ post }: { post: PostMeta }) {
   const category = getCategory(post.category);
