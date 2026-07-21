@@ -2,12 +2,16 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { MDXRemote } from "next-mdx-remote/rsc";
-import { getAllPosts, getPostBySlug } from "@/lib/posts";
+import Link from "next/link";
+import { getAllPosts, getPostBySlug, getPostsByCategory } from "@/lib/posts";
 import { getCategory } from "@/lib/categories";
 import { resolveCoverImage } from "@/lib/cover";
 import { formatDate } from "@/lib/date";
+import { SITE_URL } from "@/lib/site";
 import YouTubeEmbed from "@/components/mdx/YouTubeEmbed";
 import MdxImage from "@/components/mdx/MdxImage";
+import ShareButtons from "@/components/ShareButtons";
+import NewsCard from "@/components/NewsCard";
 
 const mdxComponents = { YouTubeEmbed, img: MdxImage };
 
@@ -55,6 +59,9 @@ export default async function PostPage({
 
   const category = getCategory(post.category);
   const coverImage = await resolveCoverImage(post);
+  const relatedPosts = getPostsByCategory(post.category)
+    .filter((p) => p.slug !== post.slug)
+    .slice(0, 3);
 
   return (
     <article className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
@@ -93,6 +100,34 @@ export default async function PostPage({
       <div className="prose prose-invert mt-8 max-w-none prose-headings:font-display prose-headings:uppercase prose-headings:tracking-wide prose-a:text-accent">
         <MDXRemote source={post.content} components={mdxComponents} />
       </div>
+
+      <div className="mt-10 border-y border-border py-6">
+        <ShareButtons url={`${SITE_URL}/noticia/${post.slug}`} title={post.title} />
+      </div>
+
+      {relatedPosts.length > 0 && (
+        <section className="mt-14">
+          <div className="mb-5 flex items-end justify-between border-b border-border pb-3">
+            <h2 className="font-display text-2xl font-bold uppercase tracking-wide">
+              Leia também
+            </h2>
+            {category && (
+              <Link
+                href={`/categoria/${category.slug}`}
+                className="font-display text-xs font-semibold uppercase tracking-wide text-muted transition-colors hover:text-accent"
+              >
+                Ver tudo →
+              </Link>
+            )}
+          </div>
+
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {relatedPosts.map((related) => (
+              <NewsCard key={related.slug} post={related} />
+            ))}
+          </div>
+        </section>
+      )}
     </article>
   );
 }
