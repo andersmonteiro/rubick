@@ -2,12 +2,15 @@
 
 import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import type { PostMeta } from "@/lib/posts";
 import { getCategory } from "@/lib/categories";
 
 const AUTOPLAY_MS = 6000;
 
-export default function HeroCarousel({ posts }: { posts: PostMeta[] }) {
+export type HeroPost = PostMeta & { coverImage: string | null };
+
+export default function HeroCarousel({ posts }: { posts: HeroPost[] }) {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
 
@@ -39,9 +42,23 @@ export default function HeroCarousel({ posts }: { posts: PostMeta[] }) {
         key={post.slug}
         className={`card-glitch animate-fade-in relative flex h-[380px] flex-col justify-end overflow-hidden bg-gradient-to-br ${post.gradient} p-6 sm:h-[420px] sm:p-10`}
       >
-        <span className="font-display text-outline pointer-events-none absolute right-4 top-4 text-5xl font-bold uppercase opacity-40 sm:text-7xl">
-          {category?.label ?? post.category}
-        </span>
+        {post.coverImage ? (
+          <>
+            <Image
+              src={post.coverImage}
+              alt={post.title}
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/10" />
+          </>
+        ) : (
+          <span className="font-display text-outline pointer-events-none absolute right-4 top-4 text-5xl font-bold uppercase opacity-40 sm:text-7xl">
+            {category?.label ?? post.category}
+          </span>
+        )}
 
         <div className="relative">
           {category && <span className={category.tagClass}>{category.label}</span>}

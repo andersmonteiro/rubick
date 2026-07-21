@@ -3,13 +3,20 @@ import HeroCarousel from "@/components/HeroCarousel";
 import NewsCard from "@/components/NewsCard";
 import { categories } from "@/lib/categories";
 import { getAllPosts } from "@/lib/posts";
+import { resolveCoverImage } from "@/lib/cover";
 
 const CAROUSEL_SIZE = 3;
 
-export default function Home() {
+export default async function Home() {
   const allPosts = getAllPosts();
-  const heroPosts = allPosts.slice(0, CAROUSEL_SIZE);
-  const heroSlugs = new Set(heroPosts.map((p) => p.slug));
+  const heroPostsRaw = allPosts.slice(0, CAROUSEL_SIZE);
+  const heroSlugs = new Set(heroPostsRaw.map((p) => p.slug));
+  const heroPosts = await Promise.all(
+    heroPostsRaw.map(async (post) => ({
+      ...post,
+      coverImage: await resolveCoverImage(post),
+    })),
+  );
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-12">

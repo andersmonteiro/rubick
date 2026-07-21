@@ -1,6 +1,8 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { PostMeta } from "@/lib/posts";
 import { getCategory } from "@/lib/categories";
+import { resolveCoverImage } from "@/lib/cover";
 
 function formatDate(date: string) {
   return new Date(date).toLocaleDateString("pt-BR", {
@@ -10,18 +12,29 @@ function formatDate(date: string) {
   });
 }
 
-export default function NewsCard({ post }: { post: PostMeta }) {
+export default async function NewsCard({ post }: { post: PostMeta }) {
   const category = getCategory(post.category);
+  const coverImage = await resolveCoverImage(post);
 
   return (
     <Link href={`/noticia/${post.slug}`} className="group block">
       <article className="card-glitch h-full overflow-hidden">
         <div
-          className={`flex h-36 items-center justify-center bg-gradient-to-br ${post.gradient} border-b border-border`}
+          className={`relative flex h-36 items-center justify-center overflow-hidden bg-gradient-to-br ${post.gradient} border-b border-border`}
         >
-          <span className="font-display text-outline text-4xl font-bold uppercase">
-            {category?.label ?? post.category}
-          </span>
+          {coverImage ? (
+            <Image
+              src={coverImage}
+              alt={post.title}
+              fill
+              sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+              className="object-cover"
+            />
+          ) : (
+            <span className="font-display text-outline text-4xl font-bold uppercase">
+              {category?.label ?? post.category}
+            </span>
+          )}
         </div>
 
         <div className="p-4">

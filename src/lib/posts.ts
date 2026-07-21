@@ -14,6 +14,7 @@ export interface PostMeta {
   author: string;
   featured: boolean;
   gradient: string;
+  externalQuery: string | null;
 }
 
 export interface Post extends PostMeta {
@@ -43,6 +44,7 @@ export function getAllPosts(): Post[] {
       author: (data.author as string) ?? "Redação Rubick",
       featured: Boolean(data.featured),
       gradient: (data.gradient as string) ?? "from-accent/30 via-surface to-surface",
+      externalQuery: (data.externalQuery as string) ?? null,
       content,
     };
   });

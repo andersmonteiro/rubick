@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { getAllPosts, getPostBySlug } from "@/lib/posts";
 import { getCategory } from "@/lib/categories";
+import { resolveCoverImage } from "@/lib/cover";
 
 export function generateStaticParams() {
   return getAllPosts().map((p) => ({ slug: p.slug }));
@@ -55,15 +57,27 @@ export default async function PostPage({
   if (!post) notFound();
 
   const category = getCategory(post.category);
+  const coverImage = await resolveCoverImage(post);
 
   return (
     <article className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
       <div
-        className={`card-glitch mb-8 flex h-48 items-center justify-center bg-gradient-to-br ${post.gradient} sm:h-64`}
+        className={`card-glitch relative mb-8 flex h-48 items-center justify-center overflow-hidden bg-gradient-to-br ${post.gradient} sm:h-64`}
       >
-        <span className="font-display text-outline text-5xl font-bold uppercase sm:text-7xl">
-          {category?.label ?? post.category}
-        </span>
+        {coverImage ? (
+          <Image
+            src={coverImage}
+            alt={post.title}
+            fill
+            sizes="(min-width: 640px) 768px, 100vw"
+            className="object-cover"
+            priority
+          />
+        ) : (
+          <span className="font-display text-outline text-5xl font-bold uppercase sm:text-7xl">
+            {category?.label ?? post.category}
+          </span>
+        )}
       </div>
 
       <div className="mb-4 flex items-center gap-3">
