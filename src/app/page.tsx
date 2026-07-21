@@ -15,7 +15,6 @@ export default async function Home() {
   const featuredPosts = allPosts.filter((p) => p.featured);
   const otherPosts = allPosts.filter((p) => !p.featured);
   const heroPostsRaw = [...featuredPosts, ...otherPosts].slice(0, CAROUSEL_SIZE);
-  const heroSlugs = new Set(heroPostsRaw.map((p) => p.slug));
   const heroPosts = await Promise.all(
     heroPostsRaw.map(async (post) => ({
       ...post,
@@ -32,9 +31,7 @@ export default async function Home() {
       )}
 
       {categories.map((cat) => {
-        const posts = allPosts
-          .filter((p) => p.category === cat.slug && !heroSlugs.has(p.slug))
-          .slice(0, 3);
+        const posts = allPosts.filter((p) => p.category === cat.slug).slice(0, 3);
 
         if (posts.length === 0) return null;
 
