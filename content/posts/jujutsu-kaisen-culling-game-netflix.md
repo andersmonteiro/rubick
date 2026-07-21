@@ -7,6 +7,7 @@ author: "Redação Rubick"
 featured: false
 gradient: "from-purple-400/25 via-surface to-surface"
 externalQuery: "Jujutsu Kaisen"
+tags: ["Netflix", "Jujutsu Kaisen"]
 ---
 
 **Jujutsu Kaisen: The Culling Game Part 1** estreia globalmente na Netflix em **22 de julho** (algumas fontes indicam 23 de julho, dependendo da região), trazendo os feiticeiros para o que promete ser o confronto mais duro da série até agora.

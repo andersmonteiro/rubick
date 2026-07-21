@@ -7,6 +7,7 @@ author: "Redação Rubick"
 featured: true
 gradient: "from-accent/30 via-surface to-surface"
 externalQuery: "Grand Theft Auto VI"
+tags: ["GTA", "Rockstar"]
 ---
 
 O CEO da Take-Two Interactive, **Strauss Zelnick**, reafirmou publicamente que **Grand Theft Auto VI** chega em **19 de novembro de 2026** para PlayStation 5 e Xbox Series X|S — sem versão para PC confirmada no lançamento. O anúncio vem acompanhado do terceiro trailer oficial do jogo, com mais cenas de gameplay do que qualquer material divulgado até agora.

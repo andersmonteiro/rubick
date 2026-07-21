@@ -34,9 +34,17 @@ export default function Footer() {
           </div>
         </div>
 
-        <p className="mt-8 text-xs text-muted">
-          © {new Date().getFullYear()} Rubick. Todos os direitos reservados.
-        </p>
+        <div className="mt-8 flex items-center justify-between">
+          <p className="text-xs text-muted">
+            © {new Date().getFullYear()} Rubick. Todos os direitos reservados.
+          </p>
+          <a
+            href="/rss.xml"
+            className="text-xs text-muted transition-colors hover:text-accent"
+          >
+            RSS
+          </a>
+        </div>
       </div>
     </footer>
   );

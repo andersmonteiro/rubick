@@ -7,6 +7,7 @@ author: "Redação Rubick"
 featured: false
 gradient: "from-rose-500/30 via-surface to-surface"
 externalQuery: "Spider-Man: Brand New Day"
+tags: ["MCU", "Marvel", "Homem-Aranha"]
 ---
 
 **Homem-Aranha: Um Novo Dia** (*Spider-Man: Brand New Day*) chega aos cinemas em **31 de julho**, dirigido por **Destin Daniel Cretton** (de *Shang-Chi*) e novamente estrelado por **Tom Holland**. É o quarto filme solo do ator no papel e o primeiro totalmente pós-*Vingadores: Guerra Infinita/Ultimato* a se aventurar num tom mais adulto e sombrio para o herói.

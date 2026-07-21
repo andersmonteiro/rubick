@@ -7,6 +7,7 @@ author: "Redação Rubick"
 featured: false
 gradient: "from-accent/20 via-surface to-surface"
 externalQuery: "Gears of War Reloaded"
+tags: ["Xbox Game Pass", "Gears of War"]
 ---
 
 Julho está movimentado para os assinantes do **Xbox Game Pass**. O destaque do mês é **Gears of War: Reloaded**, remaster do Gears of War original construído em Unreal Engine, disponível desde o dia 9 para console, PC e nuvem.

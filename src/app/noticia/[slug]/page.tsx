@@ -3,11 +3,11 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import Link from "next/link";
-import { getAllPosts, getPostBySlug, getPostsByCategory } from "@/lib/posts";
+import { getAllPosts, getPostBySlug, getPostsByCategory, slugifyTag } from "@/lib/posts";
 import { getCategory } from "@/lib/categories";
 import { resolveCoverImage } from "@/lib/cover";
 import { formatDate } from "@/lib/date";
-import { SITE_URL } from "@/lib/site";
+import { SITE_NAME, SITE_URL } from "@/lib/site";
 import YouTubeEmbed from "@/components/mdx/YouTubeEmbed";
 import MdxImage from "@/components/mdx/MdxImage";
 import ShareButtons from "@/components/ShareButtons";
@@ -63,8 +63,31 @@ export default async function PostPage({
     .filter((p) => p.slug !== post.slug)
     .slice(0, 3);
 
+  const postUrl = `${SITE_URL}/noticia/${post.slug}`;
+  const schemaImage = coverImage ?? `${SITE_URL}/noticia/${post.slug}/opengraph-image`;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    headline: post.title,
+    description: post.excerpt,
+    image: [schemaImage],
+    datePublished: post.date,
+    dateModified: post.date,
+    author: [{ "@type": "Organization", name: post.author }],
+    publisher: {
+      "@type": "Organization",
+      name: SITE_NAME,
+      logo: { "@type": "ImageObject", url: `${SITE_URL}/icon` },
+    },
+    mainEntityOfPage: { "@type": "WebPage", "@id": postUrl },
+  };
+
   return (
     <article className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <div
         className={`card-glitch relative mb-8 flex h-48 items-center justify-center overflow-hidden bg-gradient-to-br ${post.gradient} sm:h-64`}
       >
@@ -101,8 +124,22 @@ export default async function PostPage({
         <MDXRemote source={post.content} components={mdxComponents} />
       </div>
 
-      <div className="mt-10 border-y border-border py-6">
-        <ShareButtons url={`${SITE_URL}/noticia/${post.slug}`} title={post.title} />
+      {post.tags.length > 0 && (
+        <div className="mt-10 flex flex-wrap items-center gap-2">
+          {post.tags.map((tag) => (
+            <Link
+              key={tag}
+              href={`/tag/${slugifyTag(tag)}`}
+              className="border border-border px-3 py-1 text-xs uppercase tracking-wide text-muted transition-colors hover:border-accent hover:text-accent"
+            >
+              #{tag}
+            </Link>
+          ))}
+        </div>
+      )}
+
+      <div className="mt-6 border-y border-border py-6">
+        <ShareButtons url={postUrl} title={post.title} />
       </div>
 
       {relatedPosts.length > 0 && (

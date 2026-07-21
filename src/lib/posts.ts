@@ -15,6 +15,16 @@ export interface PostMeta {
   featured: boolean;
   gradient: string;
   externalQuery: string | null;
+  tags: string[];
+}
+
+export function slugifyTag(tag: string): string {
+  return tag
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .trim()
+    .replace(/\s+/g, "-");
 }
 
 export interface Post extends PostMeta {
@@ -45,6 +55,7 @@ export function getAllPosts(): Post[] {
       featured: Boolean(data.featured),
       gradient: (data.gradient as string) ?? "from-accent/30 via-surface to-surface",
       externalQuery: (data.externalQuery as string) ?? null,
+      tags: Array.isArray(data.tags) ? (data.tags as string[]) : [],
       content,
     };
   });
@@ -63,4 +74,28 @@ export function getPostsByCategory(category: CategorySlug): Post[] {
 export function getFeaturedPost(): Post | undefined {
   const posts = getAllPosts();
   return posts.find((p) => p.featured) ?? posts[0];
+}
+
+export interface TagInfo {
+  slug: string;
+  label: string;
+}
+
+export function getAllTags(): TagInfo[] {
+  const bySlug = new Map<string, string>();
+
+  for (const post of getAllPosts()) {
+    for (const tag of post.tags) {
+      const slug = slugifyTag(tag);
+      if (!bySlug.has(slug)) bySlug.set(slug, tag);
+    }
+  }
+
+  return Array.from(bySlug.entries())
+    .map(([slug, label]) => ({ slug, label }))
+    .sort((a, b) => a.label.localeCompare(b.label));
+}
+
+export function getPostsByTagSlug(tagSlug: string): Post[] {
+  return getAllPosts().filter((p) => p.tags.some((t) => slugifyTag(t) === tagSlug));
 }

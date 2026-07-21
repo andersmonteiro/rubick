@@ -7,6 +7,7 @@ author: "Redação Rubick"
 featured: false
 gradient: "from-rose-500/25 via-surface to-surface"
 externalQuery: "The Odyssey"
+tags: ["Christopher Nolan"]
 ---
 
 **A Odisseia** chegou aos cinemas em 17 de julho e já estreou na liderança das bilheterias, com aproximadamente **US$ 124,5 milhões** só no mercado americano no primeiro fim de semana e **US$ 264 milhões** arrecadados no mundo todo — sobre um orçamento de produção de US$ 250 milhões. É a maior abertura da carreira de Christopher Nolan até agora.

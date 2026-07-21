@@ -7,6 +7,7 @@ author: "Redação Rubick"
 featured: false
 gradient: "from-cyan-400/25 via-surface to-surface"
 externalQuery: "House of the Dragon"
+tags: ["HBO", "Game of Thrones"]
 ---
 
 A terceira temporada de **House of the Dragon** estreou em 21 de junho na HBO e segue no ar, com oito episódios ao todo e final previsto para **9 de agosto**. O episódio 6 vai ao ar em 26 de julho.

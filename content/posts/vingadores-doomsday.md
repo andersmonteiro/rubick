@@ -7,6 +7,7 @@ author: "Redação Rubick"
 featured: false
 gradient: "from-rose-500/20 via-surface to-surface"
 externalQuery: "Avengers: Doomsday"
+tags: ["MCU", "Marvel", "Vingadores"]
 ---
 
 **Vingadores: Doomsday** estreia em 18 de dezembro e já confirmou um dos elencos mais numerosos da história do MCU. O grande destaque é o retorno de **Robert Downey Jr.**, que volta ao universo Marvel não como Tony Stark, mas no papel do vilão **Doutor Destino**.

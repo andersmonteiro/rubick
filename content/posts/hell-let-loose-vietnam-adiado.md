@@ -7,6 +7,7 @@ author: "Redação Rubick"
 featured: false
 gradient: "from-accent/25 via-surface to-surface"
 externalQuery: "Hell Let Loose: Vietnam"
+tags: ["Hell Let Loose"]
 ---
 
 **Hell Let Loose: Vietnam** não chega mais em junho como planejado originalmente. A desenvolvedora **Expression Games**, em parceria com a publisher **Team17**, confirmou que o novo capítulo da franquia de tiro tático foi adiado para **13 de agosto**, cerca de dois meses após a data inicial de 18 de junho.
