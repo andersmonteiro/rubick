@@ -11,6 +11,7 @@ import { SITE_NAME, SITE_URL } from "@/lib/site";
 import YouTubeEmbed from "@/components/mdx/YouTubeEmbed";
 import MdxImage from "@/components/mdx/MdxImage";
 import ShareButtons from "@/components/ShareButtons";
+import LikeButton from "@/components/LikeButton";
 import NewsCard from "@/components/NewsCard";
 
 const mdxComponents = { YouTubeEmbed, img: MdxImage };
@@ -138,7 +139,8 @@ export default async function PostPage({
         </div>
       )}
 
-      <div className="mt-6 border-y border-border py-6">
+      <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-y border-border py-6">
+        <LikeButton slug={post.slug} />
         <ShareButtons url={postUrl} title={post.title} />
       </div>
 
